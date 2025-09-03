@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p2p-node
+  namespace: p2p-benchmark
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: p2p-node
+  template:
+    metadata:
+      labels:
+        app: p2p-node
+    spec:
+      containers:
+      - name: p2p-node
+        image: hashicorp/http-echo
+        args:
+          - "-text=Hello from node"
+        ports:
+          - containerPort: 5678
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
