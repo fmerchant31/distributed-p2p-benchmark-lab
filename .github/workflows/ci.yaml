@@ -2,18 +2,18 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+    validate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
 
-    - name: Lint YAML
-      uses: ibiqlik/action-yamllint@v3
+            - name: Lint YAML
+              uses: ibiqlik/action-yamllint@v3
 
